@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexora - Terms & Privacy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="5.PNG" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#ffffff",
+              secondary: "#808080",
+            },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .active-section { color: #ffffff; border-left: 2px solid #ffffff; }
+      .toc-link { transition: all 0.3s ease; }
+      .toc-link:hover { color: #ffffff; }
+      .section-content { display: none; }
+      .section-content.active { display: block; }
+      .tab-active { background-color: #FFD700; color: #000000; }
+      @media print {
+        .no-print { display: none; }
+      }
+      body {
+        min-height: 100vh;
+        background: linear-gradient(to bottom, #000000, #1a1a1a);
+        position: relative;
+        overflow-x: hidden;
+      }
+      .prose { color: #ffffff; }
+      .prose h2 { color: #ffffff; }
+      .toc-nav::-webkit-scrollbar { display: none; }
+      .toc-nav {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('5.PNG'); /* Placeholder image */
+        filter: brightness(0) saturate(100%) invert(79%) sepia(70%) saturate(1095%) hue-rotate(2deg) brightness(91%) contrast(99%);
+        background-size: 48%;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.3;
+        z-index: -1;
+      }
+      @media (max-width: 1023px) {
+        .toc-nav {
+          position: relative;
+          top: 0;
+          width: 100%;
+          height: auto;
+          max-height: 50vh;
+          overflow-y: auto;
+          margin-bottom: 1rem;
+        }
+        body::before { background-size: 80% auto; }
+      }
+      @media (max-width: 640px) {
+        body::before { background-size: 100% auto; }
+      }
+    </style>
+  </head>
+  <body class="bg-black text-[#FFD700]">
+    <!-- Header with Hamburger Menu -->
+    <header class="fixed top-0 left-0 right-0 h-16 bg-black/80 backdrop-blur-sm border-b border-gray-800 z-50 flex items-center justify-between px-4 sm:px-6">
+      <div class="flex items-center">
+        <span class="text-2xl font-bold">Nexora</span>
+      </div>
+      <button class="lg:hidden text-[#FFD700] focus:outline-none" id="mobileMenuBtn" aria-label="Toggle menu">
+        <i class="ri-menu-line ri-lg"></i>
+      </button>
+      <nav id="mobileMenu" class="hidden lg:flex lg:items-center lg:space-x-8 absolute lg:static top-16 left-0 right-0 bg-black/90 lg:bg-transparent p-4 lg:p-0">
+        <a href="index.html" class="block lg:inline-block text-gray-400 hover:text-[#FFD700] transition-colors text-sm py-2 lg:py-0">ABOUT US</a>
+        <a href="index.html#vision" class="block lg:inline-block text-gray-400 hover:text-[#FFD700] transition-colors text-sm py-2 lg:py-0">OUR VISION</a>
+        <a href="index.html#companies" class="block lg:inline-block text-gray-400 hover:text-[#FFD700] transition-colors text-sm py-2 lg:py-0">COMPANIES</a>
+        <a href="index.html#contact" class="block lg:inline-block text-gray-400 hover:text-[#FFD700] transition-colors text-sm py-2 lg:py-0">CONTACT</a>
+      </nav>
+    </header>
+
+    <!-- Main Content (Below the Header) -->
+    <div class="mt-16">
+      <!-- Title and Image Section -->
+        <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <div class="globe-container" id="globeContainer"></div>
+            <div class="relative z-10 text-center max-w-4xl mx-auto px-4">
+                <h1 class="text-6xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            Privacy Policy and Terms of Service Agreement
+          </h1>
+          <p class="text-gray-300 text-xl mb-12">
+            We are committed to protecting your privacy and ensuring a secure and transparent experience. Please review our Privacy Policy and Terms and Conditions to understand how we handle your information.
+          </p>
+        </div>
+      </section>
+
+      <!-- Content for Terms and Privacy -->
+      <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 mb-8">
+          <button onclick="switchTab('terms')" class="flex-1 py-2 px-4 text-center rounded-full bg-black text-[#FFD700] hover:bg-[#FFD700] hover:text-black cursor-pointer transition-all tab-active" id="termsTab" aria-label="View Terms and Conditions">
+            Terms and Conditions
+          </button>
+          <button onclick="switchTab('privacy')" class="flex-1 py-2 px-4 text-center rounded-full bg-black text-[#FFD700] hover:bg-[#FFD700] hover:text-black cursor-pointer transition-all" id="privacyTab" aria-label="View Privacy Policy">
+            Privacy Policy
+          </button>
+        </div>
+        <div class="flex flex-col lg:flex-row gap-4 lg:gap-8">
+          <nav class="toc-nav w-full lg:w-64 lg:h-[calc(100vh-10rem)] lg:sticky lg:top-24 overflow-y-auto bg-black border border-[#FFD700] rounded-lg p-4">
+            <div id="termsToc" class="space-y-2">
+              <h3 class="font-semibold mb-4 text-primary">Table of Contents</h3>
+            </div>
+            <div id="privacyToc" class="space-y-2 hidden">
+              <h3 class="font-semibold mb-4 text-primary">Table of Contents</h3>
+            </div>
+          </nav>
+          <main class="flex-1 w-full">
+            <div id="termsContent" class="prose max-w-none"></div>
+            <div id="privacyContent" class="prose max-w-none hidden"></div>
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <button id="backToTop" class="fixed bottom-4 sm:bottom-8 right-4 sm:right-8 bg-[#FFD700] text-black p-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300 cursor-pointer hover:bg-[#B8860B]" aria-label="Back to top">
+      <i class="ri-arrow-up-line ri-lg"></i>
+    </button>
+    
+    <footer class="bg-transparent relative z-10">
+      <div class="max-w-7xl mx-auto px-4 py-12">
+          <div class="grid md:grid-cols-4 gap-8">
+              <!-- Company Info -->
+              <div>
+                  <h4 class="text-primary text-lg font-bold mb-4">Nexora</h4>
+                  <p class="text-gray-600 dark:text-gray-400">Innovating since 2010</p>
+              </div>
+  
+              <!-- Quick Links -->
+              <div>
+                  <h4 class="text-gray-600 dark:text-gray-300 text-lg mb-4">Quick Links</h4>
+                  <ul class="space-y-2">
+                      <li><a href="index.html#about" class="text-gray-600 dark:text-gray-400 hover:text-primary">About US</a></li>
+                      <li><a href="index.html#vision" class="text-gray-600 dark:text-gray-400 hover:text-primary">Our Vision</a></li>
+                      <a href="index.html#companies" class="block lg:inline-block text-gray-400 hover:text-[#FFD700] transition-colors text-sm py-2 lg:py-0">Companies</a>
+                  </ul>
+              </div>
+  
+              <!-- Legal -->
+              <div>
+                  <h4 class="text-gray-600 dark:text-gray-300 text-lg mb-4">Legal</h4>
+                  <ul class="space-y-2">
+                    <li><a href="blog.html#privacy" class="text-gray-600 dark:text-gray-400 hover:text-primary">Privacy Policy</a></li>
+                      <li><a href="blog.html#terms" class="text-gray-600 dark:text-gray-400 hover:text-primary">Terms and Conditions</a></li>
+                  </ul>
+              </div>
+  
+              <!-- Contact -->
+              <div>
+                  <h4 class="text-gray-600 dark:text-gray-300 text-lg mb-4">Contact</h4>
+                  <p class="text-gray-600 dark:text-gray-400">hello@neuora.com</p>
+              </div>
+          </div>
+  
+          <!-- Copyright -->
+          <div class="border-t border-gray-300 dark:border-gray-800 mt-8 pt-8 text-center text-gray-600 dark:text-gray-400">
+              <p>© 2025 Neuora Group. All rights reserved.</p>
+          </div>
+      </div>
+  </footer>
+
+    <script>
+      // Hamburger menu toggle
+      document.getElementById("mobileMenuBtn").addEventListener("click", () => {
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Terms and Privacy Data (unchanged, truncated for brevity)
+      const termsData = {
+        sections: [
+  { id: "terms-1", title: "1. General Terms of Agreement", content: "<p>By accessing and utilizing our services (the 'Services'), you acknowledge and accept the terms and conditions set forth herein. These Terms and Conditions constitute a legally binding agreement between the user (the 'User') and [Your Company Name] ('Company'), which governs the usage of the Services provided by the Company. The terms outlined in this agreement may be modified, updated, or altered at the Company's discretion, with or without prior notice to the User. Continued use of the Services after such changes constitutes acceptance of the modified terms.</p>" },
+  { id: "terms-2", title: "2. Account Registration and User Obligations", content: "<p>To access certain features of the Services, users are required to create an account ('Account') by providing accurate, complete, and up-to-date information. Users are responsible for maintaining the confidentiality of their account credentials, including passwords, and for all activities that occur under their account. Users agree to promptly notify the Company of any unauthorized access or use of their account. Failure to comply with this obligation may result in the suspension or termination of the user's access to the Services.</p>" },
+  { id: "terms-3", title: "3. Prohibited Activities and Restrictions", content: "<p>Users shall not engage in any activities that violate applicable laws, regulations, or third-party rights. Prohibited activities include, but are not limited to: (i) engaging in illegal or fraudulent activities; (ii) infringing intellectual property rights; (iii) transmitting malicious software or harmful content; (iv) interfering with the proper functioning of the Services; and (v) attempting to gain unauthorized access to the Company's systems. The Company reserves the right to suspend or terminate accounts that engage in such prohibited activities.</p>" },
+  { id: "terms-4", title: "4. Intellectual Property Rights", content: "<p>All intellectual property rights, including but not limited to trademarks, copyrights, patents, and trade secrets, associated with the Services and any content provided therein, are the exclusive property of the Company or its licensors. Users are granted a non-exclusive, non-transferable, limited license to access and use the Services for personal or business purposes, subject to the terms and conditions of this Agreement. Any unauthorized use of the intellectual property may result in legal action.</p>" },
+  { id: "terms-5", title: "5. Service Availability and Limitations", content: "<p>The Company strives to provide continuous, uninterrupted access to the Services. However, the Company does not warrant that the Services will be error-free or available at all times. The Services may be temporarily unavailable due to maintenance, system updates, or technical issues. The Company does not accept liability for any loss, damage, or inconvenience caused by the unavailability of the Services.</p>" },
+  { id: "terms-6", title: "6. User-Generated Content and Licenses", content: "<p>Users may have the opportunity to submit, post, or share content ('User Content') via the Services. By submitting User Content, the User grants the Company a perpetual, irrevocable, royalty-free, worldwide license to use, modify, display, distribute, and promote the content across various media platforms. The User retains ownership of their User Content but warrants that it does not infringe on any third-party rights, including intellectual property, privacy, or publicity rights.</p>" },
+  { id: "terms-7", title: "7. Data Processing and Privacy Considerations", content: "<p>The User acknowledges that the Company processes personal data as described in the Company's Privacy Policy. The collection and processing of personal data are carried out in compliance with applicable data protection laws, including the GDPR and CCPA. By using the Services, the User consents to the processing of their personal data as outlined in the Privacy Policy. Users have the right to access, modify, or delete their personal data in accordance with applicable laws.</p>" },
+  { id: "terms-8", title: "8. Third-Party Links and Services", content: "<p>The Services may contain links to third-party websites or services that are not owned or controlled by the Company. The Company is not responsible for the content, privacy practices, or security of any third-party websites or services. Users acknowledge and agree that the Company shall not be held liable for any loss, damage, or inconvenience caused by the use of third-party websites or services.</p>" },
+  { id: "terms-9", title: "9. Disclaimers of Warranties", content: "<p>THE SERVICES ARE PROVIDED 'AS IS' AND 'AS AVAILABLE,' WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. THE COMPANY DOES NOT GUARANTEE THE ACCURACY, COMPLETENESS, OR RELIABILITY OF THE SERVICES AND DISCLAIMS ALL LIABILITY ARISING FROM THE USE OF THE SERVICES.</p>" },
+  { id: "terms-10", title: "10. Limitation of Liability", content: "<p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE COMPANY SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM THE USE OF THE SERVICES OR THE INABILITY TO USE THE SERVICES, EVEN IF THE COMPANY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. THE COMPANY'S TOTAL LIABILITY SHALL NOT EXCEED THE AMOUNT PAID BY THE USER FOR THE SERVICES IN THE SIX MONTHS PRECEDING THE CLAIM.</p>" },
+  { id: "terms-11", title: "11. Indemnification", content: "<p>The User agrees to indemnify, defend, and hold harmless the Company, its affiliates, employees, agents, and third-party service providers from any claims, liabilities, damages, or expenses, including reasonable attorney's fees, arising out of the User's violation of these Terms and Conditions, misuse of the Services, or infringement of any third-party rights.</p>" },
+  { id: "terms-12", title: "12. Termination of Access", content: "<p>The Company reserves the right to terminate or suspend the User's access to the Services, without notice, for any reason, including but not limited to violations of these Terms and Conditions or unlawful conduct. Upon termination, the User's right to use the Services shall immediately cease, and any outstanding obligations of the User shall remain enforceable.</p>" },
+  { id: "terms-13", title: "13. Governing Law and Dispute Resolution", content: "<p>These Terms and Conditions shall be governed by and construed in accordance with the laws of [Jurisdiction]. Any disputes arising from these Terms and Conditions shall be subject to the exclusive jurisdiction of the courts in [Location], and the User agrees to submit to the personal jurisdiction of such courts. The User agrees to resolve any disputes through binding arbitration, if necessary, in accordance with the rules of [Arbitration Organization].</p>" },
+  { id: "terms-14", title: "14. Force Majeure", content: "<p>The Company shall not be liable for any failure or delay in performing its obligations under these Terms and Conditions caused by events beyond its reasonable control, including but not limited to acts of God, natural disasters, labor disputes, government regulations, or technical failures. In such cases, the Company's performance obligations shall be suspended for the duration of the force majeure event.</p>" },
+  { id: "terms-15", title: "15. Modification of Terms", content: "<p>The Company reserves the right to amend or modify these Terms and Conditions at any time. Any changes will be communicated to the User via the Service interface or through direct communication. Continued use of the Services after any modifications to these Terms and Conditions constitutes acceptance of the revised terms.</p>" },
+  { id: "terms-16", title: "16. Severability", content: "<p>If any provision of these Terms and Conditions is found to be invalid, illegal, or unenforceable by a court of competent jurisdiction, the remaining provisions shall remain in full force and effect. The invalid provision shall be amended to reflect the intent of the original provision as closely as possible, within the bounds of applicable law.</p>" },
+  { id: "terms-17", title: "17. Entire Agreement", content: "<p>These Terms and Conditions, along with any other legal agreements incorporated by reference, constitute the entire agreement between the User and the Company with respect to the use of the Services. Any previous agreements or understandings between the parties, whether written or oral, are superseded by this Agreement.</p>" },
+  { id: "terms-18", title: "18. Contact Information", content: "<p>If you have any questions or concerns regarding these Terms and Conditions, please contact us at: [Your Company Name], [Email Address], [Physical Address].</p>" }
+]
+};
+      const privacyData = {
+        sections: [
+        {
+      id: "privacy-intro",
+      title: "1. Comprehensive Data Privacy Framework Disclosure",
+      content: `<p>In accordance with the prevailing statutory data protection statutes, including but not limited to the General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA), this disclosure expounds upon the intricate organizational protocols and operational procedures that govern the processing, utilization, and safeguarding of personally identifiable information (PII) and ancillary data assets through digital interfaces, platforms, and service provisions (collectively, "Service Channels"). The data privacy architecture encompasses a multi-tiered approach to privacy that integrates proactive risk management, real-time threat mitigation, and compliance with global regulatory frameworks.</p>`,
+    },
+    {
+      id: "information-collection",
+      title: "2. Multimodal Data Acquisition Methodologies",
+      content: `<p>Our data aggregation methodology is inherently multidimensional, incorporating: (i) voluntary data submissions via interactive user engagement modules, including but not limited to registration forms, transactional interfaces, and voluntary opt-in mechanisms; (ii) passive, automated data capture through sophisticated electronic telemetry systems, encompassing cookies, device fingerprinting, server-side log files, and real-time session tracking; and (iii) third-party data acquisition from external entities including commercial data aggregators, analytics service providers, and strategic affiliate partners, all executed in strict accordance with data licensing protocols and prevailing contractual obligations.</p>`,
+    },
+    {
+      id: "information-use",
+      title: "3. Advanced Data Utilization Paradigms",
+      content: `<p>The data harvested is utilized for a spectrum of operational purposes, including but not limited to: optimizing service delivery methodologies; leveraging predictive analytics and artificial intelligence-driven modeling; advancing machine learning algorithm training frameworks; fortifying cyber security measures to mitigate security threats; facilitating dynamic commercial personalization strategies; targeting tailored advertising campaigns across digital ecosystems; and ensuring strict adherence to both domestic and international statutory and regulatory compliance obligations. Legal bases for processing are derived from the provisions stipulated under Article 6(1) GDPR, encompassing contractual necessity (6(1)(b)), legitimate organizational interests (6(1)(f)), and compliance with legal requirements (6(1)(c)).</p>`,
+    },
+    {
+      id: "data-sharing",
+      title: "4. Third-Party Data Dissemination Protocols",
+      content: `<p>Data may be transmitted to a variety of third-party entities, including but not limited to: (a) cloud service providers who act as data processors under binding data processing agreements (DPAs); (b) co-marketing and advertising partners for the purpose of executing cross-platform, targeted marketing campaigns; (c) financial institutions processing transactions within the scope of contractual agreements; (d) governmental authorities for compliance with lawful subpoenas or judicial orders; and (e) corporate successors in the event of mergers, acquisitions, or corporate restructuring. In cases of international data transfers, the entity adheres to the standard contractual clauses (SCC) as stipulated under Chapter V of the GDPR, or implements adequacy determinations to ensure adequate protection for transferred data.</p>`,
+    },
+    {
+      id: "data-retention",
+      title: "5. Data Retention and Archival Schedule",
+      content: `<p>Data retention schedules are determined based on data classification criteria, with the following retention intervals: user profile data is retained for a period of thirty-six (36) months following account termination; transactional records are retained for a period of eighty-four (84) months to fulfill fiscal regulatory compliance requirements; cookies and session identifiers are retained for the duration of the session plus an additional fourteen (14) months; server logs are retained for a twenty-four (24)-month rolling deletion cycle. Exceptions to these retention periods are applicable in cases of legal proceedings, regulatory inquiries, or compliance with lawful retention obligations.</p>`,
+    },
+    {
+      id: "user-rights",
+      title: "6. Data Subject Entitlements and Rights of Access",
+      content: `<p>In accordance with Articles 15-21 of the GDPR, data subjects retain several rights, including but not limited to: the right to access personal data (Article 15); the right to rectification of inaccurate data (Article 16); the right to erasure or the "right to be forgotten" (Article 17); the right to restrict processing activities (Article 18); the right to data portability (Article 20); and the right to object to processing activities (Article 21). In order to exercise these rights, users must undergo identity verification via multi-factor authentication protocols, ensuring secure submission of Data Subject Access Requests (DSAR) through designated channels, accompanied by valid government-issued identification documentation.</p>`,
+    },
+    {
+      id: "security-measures",
+      title: "7. Robust Cybersecurity Measures and Incident Response",
+      content: `<p>Our cybersecurity infrastructure is underpinned by the latest encryption standards, including TLS 1.3 for data-in-transit protection and AES-256 encryption for data-at-rest storage. To mitigate unauthorized access, the organization mandates multi-factor authentication (MFA) for all system access points, regularly conducts penetration testing in accordance with industry standards, and ensures compliance with SOC 2 Type II data security standards. In the event of a data breach or security incident, our organization adheres to the NIST SP 800-61 Rev. 2 guidelines, ensuring breach notification within the 72-hour window stipulated under Article 33 of the GDPR.</p>`,
+    },
+    {
+      id: "policy-updates",
+      title: "8. Policy Amendment and Versioning Protocol",
+      content: `<p>This Privacy Policy is subject to periodic revisions and amendments, with all changes being communicated to users via service interface banners or email notifications at least thirty (30) calendar days prior to the effective date of the revisions. Continued use of our services following the effective date of updated policies constitutes binding acceptance of the revised terms. All historical versions of this policy are archived and stored within our policy repository, with complete version control metadata retained for auditing and compliance verification purposes.</p>`,
+    },
+    {
+      id: "contact-info",
+      title: "9. Data Controller and Contact Information",
+      content: `<p>The designated data controller for all personal data processing activities is: [Your Company Name], incorporated in [Jurisdiction], with registration number [Company Registration Number]. For inquiries or concerns regarding data privacy practices, users may contact the Chief Privacy Officer via email at [Privacy Officer Email Address] or at the company's registered address: [Company Address]. For residents within the European Union, you may also contact our EU representative in accordance with Article 27 of the GDPR at [EU Representative Details]. Complaints can be lodged with supervisory authorities under Article 77 of the GDPR.</p>`,
+    },
+        {
+      id: "cookie-policy",
+      title: "10. Cookie Utilization and Tracking Mechanisms",
+      content: `<p>Our platform utilizes an advanced cookie management system to enhance user experience, facilitate behavioral tracking, and optimize service performance. This includes both first-party cookies, which are directly placed by our domain, and third-party cookies, which are deployed by external service providers for the purposes of analytics, advertising, and personalized content delivery. Users are provided with granular control over their cookie preferences through an intuitive cookie consent interface, which complies with GDPR and CCPA guidelines.</p>`,
+    },
+    {
+      id: "data-processing",
+      title: "11. Data Processing Infrastructure and Operational Protocols",
+      content: `<p>The data processing infrastructure leverages highly distributed and resilient systems optimized for secure and compliant data storage and retrieval. Processing occurs within jurisdictions subject to applicable data protection regulations, with advanced data anonymization and pseudonymization techniques applied where feasible. Processing operations are governed by stringent internal policies that ensure data handling complies with the legal framework of the relevant regulatory bodies.</p>`,
+    },
+    {
+      id: "risk-management",
+      title: "12. Risk Assessment and Privacy Impact Evaluation",
+      content: `<p>Prior to initiating new data processing activities or implementing significant changes to existing processes, our organization conducts comprehensive Privacy Impact Assessments (PIAs) to identify and mitigate privacy risks associated with the handling of personal data. This process includes evaluating the likelihood of data breaches, assessing the severity of potential impacts on data subjects, and implementing preventive measures to protect data privacy and security.</p>`,
+    },
+    {
+      id: "data-supplementation",
+      title: "13. Data Supplementation and Enrichment Practices",
+      content: `<p>In certain circumstances, we may supplement the data we collect from users with information obtained from third-party data providers. This includes enriching user profiles with publicly available demographic, geographic, and behavioral data to enhance the accuracy of our analytics and provide personalized service offerings. Such supplementation is performed in full compliance with applicable data protection regulations, including the GDPR's principles of data minimization and purpose limitation.</p>`,
+    },
+    {
+      id: "automated-decision-making",
+      title: "14. Automated Decision-Making and Profiling",
+      content: `<p>As part of our data processing activities, we may engage in automated decision-making processes, including profiling, for purposes such as targeted marketing, fraud detection, and creditworthiness evaluation. These decisions are made based on the analysis of aggregated data sets and are subject to safeguards designed to protect individuals' rights and freedoms. Users may request human intervention if they are subject to automated decisions that have a significant impact on them.</p>`,
+    },
+    {
+      id: "subprocessors",
+      title: "15. Third-Party Subprocessors and Vendor Management",
+      content: `<p>We may engage third-party subprocessors to assist with data processing functions, including cloud service providers, analytics firms, and customer support platforms. Each subprocessors’ access to personal data is governed by comprehensive data processing agreements (DPAs) that impose strict confidentiality, security, and compliance obligations. A list of subprocessors, along with their locations and purposes for data processing, is available upon request.</p>`,
+    },
+    {
+      id: "data-minimization",
+      title: "16. Data Minimization and Purpose Limitation Principles",
+      content: `<p>We adhere to the principle of data minimization, ensuring that only the data necessary for the fulfillment of the stated purposes is collected, processed, and retained. Personal data is only used in the manner that is consistent with the specific, legitimate purposes disclosed to users at the point of collection. Any use of data for secondary purposes is subject to additional consent where required by applicable law.</p>`,
+    },
+    {
+      id: "cross-border-transfers",
+      title: "17. Cross-Border Data Transfers and Compliance Mechanisms",
+      content: `<p>Given our global operations, personal data may be transferred to countries outside the user's jurisdiction, including regions that may not provide the same level of data protection. We ensure such transfers are governed by appropriate mechanisms, such as the implementation of Standard Contractual Clauses (SCCs), Binding Corporate Rules (BCRs), or reliance on adequacy decisions by relevant data protection authorities, in accordance with Chapter V of the GDPR.</p>`,
+    },
+    {
+      id: "audit-trails",
+      title: "18. Data Audit Trails and Accountability Mechanisms",
+      content: `<p>We maintain comprehensive audit trails of all data processing activities to ensure transparency and accountability. These records document the nature and purpose of data processing, the categories of data involved, the recipients of the data, and the retention periods. Audit trails are regularly reviewed to ensure compliance with internal data protection policies and external regulatory requirements, and are available for review by relevant supervisory authorities upon request.</p>`,
+    },
+    {
+      id: "third-party-access",
+      title: "19. Access by Third Parties and Data Recipient Protocols",
+      content: `<p>Third parties who are granted access to personal data, whether directly or indirectly, are required to adhere to stringent data protection requirements. These include data processors, independent contractors, and external service providers, all of whom must sign enforceable data processing agreements (DPAs) ensuring their compliance with our data privacy and security standards. Regular audits are conducted to verify compliance with these agreements.</p>`,
+    },
+    {
+      id: "employee-training",
+      title: "20. Employee Training and Data Privacy Awareness",
+      content: `<p>Our organization is committed to ensuring that all employees involved in data processing activities receive regular, comprehensive training on data privacy regulations and security best practices. This training emphasizes the importance of safeguarding personal data, recognizing and preventing security threats, and understanding the rights of data subjects. Employees are also educated on the proper handling of sensitive data and the legal consequences of non-compliance with data protection policies.</p>`,
+    },
+    {
+      id: "data-backup",
+      title: "21. Data Backup and Disaster Recovery Protocols",
+      content: `<p>We maintain robust data backup and disaster recovery plans to ensure the continued availability and integrity of personal data in the event of system failures, cyberattacks, or natural disasters. These plans include secure off-site backups, regular data integrity checks, and the use of advanced encryption techniques for stored backups. Recovery procedures are tested periodically to ensure they meet recovery time objectives (RTOs) and recovery point objectives (RPOs).</p>`,
+    },
+    {
+      id: "privacy-by-design",
+      title: "22. Privacy by Design and by Default",
+      content: `<p>Our organization incorporates the principles of Privacy by Design and Privacy by Default into every stage of the development lifecycle of new products and services. This ensures that privacy is considered from the outset and that users' personal data is protected by default through the use of strong encryption, anonymization techniques, and other data protection mechanisms. We conduct privacy assessments for new projects and technologies before they are implemented.</p>`,
+    },
+    {
+      id: "personal-data-violations",
+      title: "23. Personal Data Breach Notification and Remediation",
+      content: `<p>In the event of a personal data breach, our organization will adhere to the notification requirements set forth under the GDPR and other applicable laws. This includes notifying affected data subjects within 72 hours of discovering the breach, if the breach is likely to result in a high risk to the rights and freedoms of individuals. In addition, we will work with relevant authorities, such as the Data Protection Authority, to mitigate the impact of the breach and implement remedial actions.</p>`,
+    },
+    {
+      id: "user-data-control",
+      title: "24. User Control and Consent Management",
+      content: `<p>We provide users with extensive control over the processing of their personal data, including the ability to grant, withdraw, or modify consent at any time. This is facilitated through a centralized consent management system that allows users to review their preferences, manage cookie settings, and control the scope of data processing for marketing and profiling activities. All consent actions are logged and managed in compliance with applicable data protection laws.</p>`,
+    },
+    {
+      id: "data-portability",
+      title: "25. Data Portability and Interoperability Rights",
+      content: `<p>In accordance with Article 20 of the GDPR, users have the right to request the transfer of their personal data in a structured, commonly used, and machine-readable format. This data can be transmitted either to the user or directly to another data controller upon request. We ensure that data portability is facilitated in a secure and interoperable manner, ensuring that users' data can be easily transferred between services without undue hindrance.</p>`,
+    },
+    {
+      id: "sensitive-data",
+      title: "26. Handling of Sensitive Data and Special Categories of Data",
+      content: `<p>Our data processing operations involve the handling of sensitive data, as defined under GDPR Article 9, including but not limited to health-related information, biometric data, and personal identifiers. We implement strict safeguards for the collection, processing, and storage of sensitive data, and ensure that such processing is conducted in compliance with the explicit consent of the data subjects or under legitimate legal bases as prescribed by law.</p>`,
+    },
+    {
+      id: "social-media-plugins",
+      title: "27. Social Media Plugin Integration and Data Sharing",
+      content: `<p>Our platform integrates social media plugins and social sharing tools that allow users to interact with external platforms. These plugins may collect user data and share it with third-party social media networks. We do not control the data practices of these third parties, and users are advised to review the privacy policies of the relevant social media platforms before engaging with these features. Data sharing occurs subject to user consent and applicable data protection laws.</p>`,
+    },
+    {
+      id: "security-compliance",
+      title: "28. Compliance with Industry-Specific Security Standards",
+      content: `<p>In addition to GDPR and CCPA, we adhere to industry-specific security standards, including those established by the Payment Card Industry Data Security Standard (PCI DSS), Health Insurance Portability and Accountability Act (HIPAA), and other relevant regulations. Our security practices are aligned with these standards to ensure that we meet or exceed the required level of protection for sensitive financial, health, and other personal data.</p>`,
+    },
+  ],
+};
+
+      function generateTOC(data, tocId) {
+        const toc = document.getElementById(tocId);
+        toc.innerHTML = '<h3 class="font-semibold mb-4">Table of Contents</h3>';
+        data.sections.forEach((section) => {
+          const link = document.createElement("a");
+          link.href = `#${section.id}`;
+          link.className = "block py-2 pl-4 text-gray-400 hover:text-primary toc-link";
+          link.textContent = section.title;
+          link.onclick = (e) => {
+            e.preventDefault();
+            document.getElementById(section.id).scrollIntoView({ behavior: "smooth" });
+          };
+          toc.appendChild(link);
+        });
+      }
+
+      function generateContent(data, contentId) {
+        const content = document.getElementById(contentId);
+        content.innerHTML = "";
+        data.sections.forEach((section) => {
+          const sectionDiv = document.createElement("div");
+          sectionDiv.id = section.id;
+          sectionDiv.className = "mb-8";
+          sectionDiv.innerHTML = `
+            <h2 class="text-xl sm:text-2xl font-bold mb-4">${section.title}</h2>
+            ${section.content}
+          `;
+          content.appendChild(sectionDiv);
+        });
+      }
+
+      function switchTab(tab) {
+        const termsToc = document.getElementById("termsToc");
+        const privacyToc = document.getElementById("privacyToc");
+        const termsContent = document.getElementById("termsContent");
+        const privacyContent = document.getElementById("privacyContent");
+        const termsTab = document.getElementById("termsTab");
+        const privacyTab = document.getElementById("privacyTab");
+
+        if (tab === "terms") {
+          termsToc.classList.remove("hidden");
+          privacyToc.classList.add("hidden");
+          termsContent.classList.remove("hidden");
+          privacyContent.classList.add("hidden");
+          termsTab.classList.add("tab-active");
+          privacyTab.classList.remove("tab-active");
+        } else {
+          privacyToc.classList.remove("hidden");
+          termsToc.classList.add("hidden");
+          privacyContent.classList.remove("hidden");
+          termsContent.classList.add("hidden");
+          privacyTab.classList.add("tab-active");
+          termsTab.classList.remove("tab-active");
+        }
+      }
+
+      const backToTop = document.getElementById("backToTop");
+      window.onscroll = () => {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          backToTop.style.opacity = "1";
+        } else {
+          backToTop.style.opacity = "0";
+        }
+      };
+      backToTop.onclick = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
+
+      // Initialize the page
+      generateTOC(termsData, "termsToc");
+      generateTOC(privacyData, "privacyToc");
+      generateContent(termsData, "termsContent");
+      generateContent(privacyData, "privacyContent");
+      switchTab("terms");
+    </script>
+  </body>
+</html>

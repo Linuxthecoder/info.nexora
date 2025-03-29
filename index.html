@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora - Empowering Digital Futures</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#FFD700",
+                        secondary: "#B8860B",
+                    },
+                    borderRadius: {
+                        none: "0px",
+                        sm: "4px",
+                        DEFAULT: "8px",
+                        md: "12px",
+                        lg: "16px",
+                        xl: "20px",
+                        "2xl": "24px",
+                        "3xl": "32px",
+                        full: "9999px",
+                        button: "8px",
+                    },
+                },
+            },
+        };
+    </script>
+     <link rel="icon" href="5.PNG" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <style>
+        .globe-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255,215,0,0.8) 50%, rgba(255,215,0,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        img {
+    filter: brightness(0) saturate(100%) invert(79%) sepia(70%) saturate(1095%) hue-rotate(2deg) brightness(91%) contrast(99%);
+}
+    </style>
+</head>
+<body class="bg-black text-[#FFD700]">
+    <!-- Header with Hamburger Menu -->
+    <header class="fixed top-0 left-0 right-0 h-16 bg-black/80 backdrop-blur-sm border-b border-gray-800 z-50 flex items-center justify-between px-4 sm:px-6">
+        <div class="flex items-center">
+            <span class="text-2xl font-bold">Nexora</span>
+        </div>
+        <button id="mobileMenuBtn" class="text-[#FFD700] lg:hidden">
+            <i class="ri-menu-line text-2xl"></i>
+        </button>
+        <nav class="hidden lg:flex space-x-6">
+            <a href="#about" class="text-gray-300 hover:text-[#FFD700] transition-colors">About Us</a>
+            <a href="#vision" class="text-gray-300 hover:text-[#FFD700] transition-colors">Our Vision</a>
+            <a href="#companies" class="text-gray-300 hover:text-[#FFD700] transition-colors">Companies</a>
+            <a href="#contact" class="text-gray-300 hover:text-[#FFD700] transition-colors">Contact</a>
+            <a href="blog.html#privacy" class="text-gray-600 dark:text-gray-400 hover:text-primary">Privacy Policy</a>
+            <a href="blog.html#terms" class="text-gray-600 dark:text-gray-400 hover:text-primary">Terms and Conditions</a>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-black bg-opacity-90 z-40">
+        <div class="flex flex-col items-center pt-20 space-y-6">
+            <a href="#about" class="text-[#FFD700] hover:text-primary transition-colors">About Us</a>
+            <a href="#vision" class="text-[#FFD700] hover:text-primary transition-colors">Our Vision</a>
+            <a href="#companies" class="text-[#FFD700] hover:text-primary transition-colors">Companies</a>
+            <a href="#contact" class="text-[#FFD700] hover:text-primary transition-colors">Contact</a>
+            <button id="closeMobileMenu" class="absolute top-4 right-4 text-[#FFD700]">
+                <i class="ri-close-line text-2xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <main>
+        <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <div class="globe-container" id="globeContainer"></div>
+            <div class="relative z-10 text-center max-w-4xl mx-auto px-4">
+                <h1 class="text-6xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                    Shaping Tomorrow's Technology
+                </h1>
+                <p class="text-gray-300 text-xl mb-12">
+                    Nexora - A global consortium of technology innovators committed to ethical digital transformation
+                </p>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 relative z-10">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="bg-gray-900 p-8 rounded-lg border border-primary/20">
+                    <h2 class="text-primary text-4xl font-bold mb-8">About Nexora</h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="text-gray-300 space-y-4">
+                            <p class="text-lg">
+                                NEXORA – Networked Entities eXploring Optimized Responses & Advancements
+
+                                At Nexora, we are committed to creating a dynamic and interconnected platform that fosters growth, innovation, and meaningful engagement. By harnessing the power of cutting-edge technology, we bring together networked entities that strive to optimize responses and accelerate advancements across various industries.
+                                
+                                Our mission is to provide a seamless and engaging user experience while continuously evolving to meet the needs of our global community. We focus on leveraging artificial intelligence, machine learning, and advanced algorithms to enhance interaction, communication, and collaboration.
+                                
+                                Nexora is more than just a platform; it's a community where users can engage with the latest technologies, share insights, and contribute to the collective knowledge. Our vision is to empower individuals, businesses, and organizations to stay ahead in an ever-evolving digital landscape, ensuring they are equipped with the tools and resources necessary for success.
+                                
+                                Join us at Nexora, where innovation meets connection, and the future is shaped by intelligent, optimized solutions.
+                            </p>
+
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg">
+                            <h3 class="text-primary text-2xl mb-4">Key Milestones</h3>
+                            <ul class="space-y-3 text-gray-300">
+                                    <li class="flex items-center">
+                                        <i class="ri-check-line text-primary mr-2"></i> Launch of Nexora Platform – The initial release of our platform that connects entities for optimized interactions and advancements.
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="ri-check-line text-primary mr-2"></i> First AI Integration – The introduction of artificial intelligence to personalize user experiences and enhance platform performance.
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="ri-check-line text-primary mr-2"></i> Global Expansion – Our platform's reach extended to international markets, connecting users from various industries.
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="ri-check-line text-primary mr-2"></i> Aura AI Agent – The development of Aura, a powerful AI agent capable of learning and providing real-time responses.
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="ri-check-line text-primary mr-2"></i> First Major Partnership – Collaboration with key industry leaders to expand Nexora's technological capabilities and offerings.
+                                    </li>                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="vision" class="py-20 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-900 p-8 rounded-lg border border-primary/20">
+                    <h3 class="text-primary text-2xl font-bold mb-4">Our Vision</h3>
+                    <p class="text-gray-300">
+                        To create a world where technology empowers every individual and organization to achieve their fullest potential
+                    </p>
+                </div>
+                <div class="bg-gray-900 p-8 rounded-lg border border-primary/20">
+                    <h3 class="text-primary text-2xl font-bold mb-4">Our Mission</h3>
+                    <p class="text-gray-300">
+                        Develop ethical, sustainable technology solutions that drive positive global change while maintaining profitability
+                    </p>
+                </div>
+                <div class="bg-gray-900 p-8 rounded-lg border border-primary/20">
+                    <h3 class="text-primary text-2xl font-bold mb-4">Core Values</h3>
+                    <ul class="text-gray-300 space-y-2">
+                        <li>• Innovation</li>
+                        <li>• Integrity</li>
+                        <li>• Sustainability</li>
+                        <li>• Diversity</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="companies" class="py-20 relative z-10">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-primary text-4xl font-bold mb-8 text-center">Our Ecosystem</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-900 p-8 rounded-lg border border-primary/20 text-center">
+                        <img src="2.png" class="mx-auto w-10 h-9 mb-4">
+                        <h3 class="text-xl font-bold text-gray-300 mb-2">Aura AI</h3>
+                        <p class="text-gray-400">Advanced AI solutions for enterprise</p>
+                    </div>
+                    <div class="bg-gray-900 p-8 rounded-lg border border-primary/20 text-center">
+                        <i class="ri-links-line text-primary text-4xl mb-4"></i>
+                        <h3 class="text-xl font-bold text-gray-300 mb-2">Nexora Chain</h3>
+                        <p class="text-gray-400">Sustainable blockchain infrastructure</p>
+                    </div>
+                    <div class="bg-gray-900 p-8 rounded-lg border border-primary/20 text-center">
+                        <i class="ri-cloud-line text-primary text-4xl mb-4"></i>
+                        <h3 class="text-xl font-bold text-gray-300 mb-2">Nexora Cloud</h3>
+                        <p class="text-gray-400">Secure cloud computing solutions</p>
+                    </div>
+                    <div class="bg-gray-900 p-8 rounded-lg border border-primary/20 text-center">
+                        <img src="image.png" class="mx-auto w-11 h-10 mb-4">
+                        <h3 class="text-xl font-bold text-gray-300 mb-2">The Phantom Aviation</h3>
+                        <p class="text-gray-400">Secure aviation solutions and advancements</p>
+                    </div>                    
+                    <div class="bg-gray-900 p-8 rounded-lg border border-primary/20 text-center">
+                        <i class="fas fa-industry text-primary text-4xl mb-4"></i>
+                        <h3 class="text-xl font-bold text-gray-300 mb-2">Nexora Industries</h3>
+                        <p class="text-gray-400">Advanced metal manufacturing for aviation and defense technologies</p>
+                    </div>
+                    
+                    <div class="bg-gray-900 p-8 rounded-lg border border-primary/20 text-center">
+                        <i class="ri-server-line text-primary text-4xl mb-4"></i>
+                        <h3 class="text-xl font-bold text-gray-300 mb-2">Plasmy</h3>
+                        <p class="text-gray-400">A company providing servers</p>
+                    </div>                    
+                </div>
+            </div>
+        </section>
+        
+        <footer class="bg-gray-900 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 py-12">
+                <div class="grid md:grid-cols-4 gap-8">
+                    <!-- Company Info -->
+                    <div>
+                        <h4 class="text-primary text-lg font-bold mb-4">Nexora</h4>
+                        <p class="text-gray-400">Innovating since 2010</p>
+                    </div>
+        
+                    <!-- Quick Links -->
+                    <div>
+                        <h4 class="text-gray-300 text-lg mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="index.html#about" class="text-gray-600 dark:text-gray-400 hover:text-primary">About US</a></li>
+                            <li><a href="index.html#vision" class="text-gray-600 dark:text-gray-400 hover:text-primary">Our Vision</a></li>
+                            <a href="index.html#companies" class="block lg:inline-block text-gray-400 hover:text-[#FFD700] transition-colors text-sm py-2 lg:py-0">Companies</a>
+                        </ul>
+                    </div>
+        
+                    <!-- Legal -->
+                    <div>
+                        <h4 class="text-gray-300 text-lg mb-4">Legal</h4>
+                        <ul class="space-y-2">
+                            <li><a href="blog.html#privacy" class="text-gray-600 dark:text-gray-400 hover:text-primary">Privacy Policy</a></li>
+                            <li><a href="blog.html#terms" class="text-gray-600 dark:text-gray-400 hover:text-primary">Terms and Conditions</a></li>
+                        </ul>
+                    </div>
+        
+                    <!-- Contact -->
+                    <div> 
+                        <section id="contact">
+                        <h4 class="text-gray-300 text-lg mb-4">Contact</h4>
+                        <p class="text-gray-400">hello@neuora.com</p>
+                        </section>
+                    </div>
+                </div>
+        
+                <!-- Copyright -->
+                <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                    <p>© 2024 Neuora Group. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+    <script>
+            // Mobile Menu Toggle
+            document.getElementById("mobileMenuBtn").addEventListener("click", () => {
+            document.getElementById("mobileMenu").classList.remove("hidden");
+        });
+
+        document.getElementById("closeMobileMenu").addEventListener("click", () => {
+            document.getElementById("mobileMenu").classList.add("hidden");
+        });
+
+        // Three.js Globe Animation
+        let scene, camera, renderer, globe;
+        const particles = [];
+
+        function initGlobe() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById("globeContainer").appendChild(renderer.domElement);
+
+            const geometry = new THREE.SphereGeometry(5, 32, 32);
+            const material = new THREE.MeshPhongMaterial({
+                color: 0xffd700,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.3,
+            });
+            globe = new THREE.Mesh(geometry, material);
+            scene.add(globe);
+
+            const light = new THREE.PointLight(0xffd700, 1);
+            light.position.set(10, 10, 10);
+            scene.add(light);
+
+            camera.position.z = 15;
+            animate();
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            globe.rotation.y += 0.002;
+            renderer.render(scene, camera);
+        }
+
+        // Particles Animation
+        function createParticles() {
+            const particle = document.createElement("div");
+            particle.className = "particle";
+            particle.style.width = Math.random() * 4 + 2 + "px";
+            particle.style.height = particle.style.width;
+            particle.style.left = Math.random() * 100 + "%";
+            particle.style.top = Math.random() * 100 + "%";
+            document.querySelector(".globe-container").appendChild(particle);
+            particles.push(particle);
+
+            gsap.to(particle, {
+                x: (Math.random() - 0.5) * 200,
+                y: (Math.random() - 0.5) * 200,
+                opacity: 0,
+                duration: Math.random() * 3 + 2,
+                ease: "none",
+                onComplete: () => {
+                    particle.remove();
+                    particles.splice(particles.indexOf(particle), 1);
+                },
+            });
+        }
+
+        // Mobile Menu Toggle
+        document.getElementById("mobileMenuBtn").addEventListener("click", () => {
+            document.getElementById("mobileMenu").classList.remove("hidden");
+        });
+
+        document.getElementById("closeMobileMenu").addEventListener("click", () => {
+            document.getElementById("mobileMenu").classList.add("hidden");
+        });
+
+        // Initialize animations
+        initGlobe();
+        setInterval(createParticles, 200);
+
+        // Window resize handler
+        window.addEventListener("resize", () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+    let audio = new Audio("1.mp3");
+
+    // Set attributes
+    audio.loop = true;
+    audio.autoplay = true;
+    audio.volume = 0.6; // Adjust volume if needed
+
+    // Try playing the audio directly
+    let playPromise = audio.play();
+
+    if (playPromise !== undefined) {
+        playPromise.catch(() => {
+            // Autoplay blocked - Resume after user interaction
+            document.addEventListener("click", () => {
+                audio.play();
+            }, { once: true });
+        });
+    }
+});
+    </script>
+
+    <!-- Required Alpine.js -->
+<script src="https://unpkg.com/alpinejs" defer></script>
+<script src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js" defer></script>
+
+</body>
+</html>
